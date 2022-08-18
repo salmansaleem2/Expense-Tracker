@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useSignup from "../../hooks/useSignup";
+import { Link } from "react-router-dom";
 
 // Styles
 import styles from "./Signup.module.css";
@@ -22,7 +23,7 @@ const Signup = () => {
 
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(email, password, name);
+    signup(email, password, name);
     setEmail("");
     setPassword("");
     setName("");
@@ -44,7 +45,11 @@ const Signup = () => {
         <input type="text" value={name} onChange={handleName} />
       </label>
 
-      {!pending && <button className="btn">Signup</button>}
+      {!pending && (
+        // <Link to="/">
+        <button className="btn">Signup</button>
+        // </Link>
+      )}
       {pending && (
         <button className="btn" disabled>
           loading
